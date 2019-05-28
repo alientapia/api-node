@@ -9,6 +9,7 @@ const {
     updateProducts,
     deleteProducts
     } = require('../controllers/products');
+    
 router.route('/')
     .get(getProducts)
     .post(addProducts);   

@@ -18,11 +18,31 @@ module.exports = {
         });
     },
     updateProducts: (req, res) => {
-        
+        const {id} = req.params;
+        const  {name} = req.body;
 
+        products.forEach((product, i) => {
+            if(product.id === Number(id))
+                product.name = name;
+            
+        });
+        res.json({
+            'update': true,
+            'msg': 'update successfuly'
+        });
     },
     deleteProducts: (req, res) => {
-        
+        const {id} = req.params;
+
+        products.forEach((product, i) =>{
+            if(product.id === Number(id))
+            products.splice(i, 1);
+        });
+
+        res.json({
+            'delete': true,
+            'msg': 'delete successfuly'
+        });
     }
 
 
